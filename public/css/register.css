@@ -1,0 +1,61 @@
+
+body
+{ 
+    background-image: url('back.jpg');
+    background-size: cover;
+}
+.h1
+{ 
+margin-bottom: 40px;
+color: white;
+font-weight: 600;
+font-size: 65px;
+}
+
+img {  
+    max-width: 20%;  
+    height: auto;  
+    }  
+.forgetpass:hover
+{
+color: #009AC9;
+}
+.col-sm-3
+{
+    margin-top: 80px;
+}
+.col-sm-6
+{
+    margin-top: 100px;
+}
+label
+{
+    color:white;
+}
+.line
+{
+ border-left: 2px solid white;
+ margin-left: 40px;
+ height: 300px;
+}
+.btn-success
+{
+    
+    background-color:#4e4d4d;
+    margin-top: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    width:100%; 
+    color: #ffffff;  
+    overflow: hidden;
+    border: none;
+}
+.btn-success:hover
+{
+    transition: background-color .2s;
+    background-color:#5cdeff;
+    border: none;
+}
+
+
+
