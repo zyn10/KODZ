@@ -8,7 +8,7 @@ const Register = require("./models/registers");
 const async = require("hbs/lib/async");
 const exp = require("constants");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const static_path = path.join(__dirname,"../public");
 const template_path = path.join(__dirname,"../templates/views" );
@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 app.use(express.static(static_path));
+//app.set("view engine","html");
 app.set("view engine","hbs");
 app.set("views",template_path);
 hbs.registerPartials(partials_path);
@@ -34,7 +35,51 @@ app.get("/register", (req, res) => {
 app.get("/login", (req, res) => {
 	res.render("login");
 })
-
+app.get("/index", (req, res) => {
+	res.render("index");
+})
+app.get("/about", (req, res) => {
+	res.render("about");
+})
+app.get("/after-enroll", (req, res) => {
+	res.render("after-enroll");
+})
+app.get("/blog-details-left-sidebar", (req, res) => {
+	res.render("blog-details-left-sidebar");
+})
+app.get("/blog-details-right-sidebar", (req, res) => {
+	res.render("blog-details-right-sidebar");
+})
+app.get("/blog-grid", (req, res) => {
+	res.render("blog-grid");
+})
+app.get("/blog-left-sidebar", (req, res) => {
+	res.render("blog-left-sidebar");
+})
+app.get("/blog-right-sidebar", (req, res) => {
+	res.render("blog-right-sidebar");
+})
+app.get("/blog-left-sidebar", (req, res) => {
+	res.render("blog-left-sidebar");
+})
+app.get("/contact", (req, res) => {
+	res.render("contact");
+})
+app.get("/courses-admin", (req, res) => {
+	res.render("courses-admin");
+})
+app.get("/courses-admin", (req, res) => {
+	res.render("courses-admin");
+})
+app.get("/courses-details", (req, res) => {
+	res.render("courses-details");
+})
+app.get("/courses", (req, res) => {
+	res.render("courses");
+})
+app.get("/students", (req, res) => {
+	res.render("students");
+})
 //create a new user in our database
 app.post("/register", async(req, res) => {
 	try
@@ -55,8 +100,6 @@ app.post("/register", async(req, res) => {
 
 		const registered= await registerUSER.save();
 		res.status(201).render("login");
-		//req.flash("User Added Successfully");
-		//req.redirect("/templates/views/login");
 		
 	}else{
 		res.send("Password not matching")
@@ -67,10 +110,6 @@ app.post("/register", async(req, res) => {
 		res.status(400).send(error);
 	}
 })
-//backup if engine not work
-//app.get("/",(req,res)=>{
-//	res.send("Welcome to Coding World");
-//});
 
 
 
@@ -84,9 +123,12 @@ app.post("/login", async(req,res)=>{
 		
 		if(useremail.password===password)
 		{
-			res.status(201).render("register");
+			res.status(201).render("index");
+			//res.redirect("../templates/views/index.html");
+			//window.open("../templates/views/index.html");
 		}
 		else{
+			//window.open("../templates/views/index.html");
 			res.send("Incorrect Credentials");
 		}
 		//res.send(useremail);
